@@ -1,0 +1,16 @@
+<table>
+  <thread>
+    <tr>
+      <th>All flights:</th>
+    </tr>
+  </thread>
+  <tbody>
+    <% @flights.each do |flight| %>
+      <tr>
+        <td><%= flight.from_airport.code %> to <%= flight.to_airport.code %></td>
+        <td><%= flight.start %></td>
+        <td><%= flight.duration %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

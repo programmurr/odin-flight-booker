@@ -23,6 +23,6 @@
 <br />
 <h3>Departure date</h3>
 <div class="flight_date">
-  <%= select_tag(:start, options_from_collection_for_select(Flight.get_flight_dates, 'start', :flight_date_formatted)) %>
+  <%= select_tag(:start, options_for_select(Flight.get_flight_dates)) %>
 </div>
 <!-- DATE dropdown for flight date -->

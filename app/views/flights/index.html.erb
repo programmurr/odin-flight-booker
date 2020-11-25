@@ -1,28 +1,33 @@
 <h3>Search for a flight</h3>
-<div class="dropdown">
-  <%= label_tag(:from_airport_id, "From")%><br />
-  <%= collection_select(:flight, :from_airport_id, @airports, :id, :code) %>
-</div>
-<br />
-<div class="dropdown">
-  <%= label_tag(:to_airport_id, "To")%><br />
-  <%= collection_select(:flight, :to_airport_id, @airports, :id, :code) %>
-</div>
-<br />
-<h3>Number of passengers</h3>
-<div class="radio_select">
-  <%= label_tag(:passenger_count, "1")%>
-  <%= radio_button_tag(:passenger_count, 1)%>
-  <%= label_tag(:passenger_count, "2")%>
-  <%= radio_button_tag(:passenger_count, 2)%>
-  <%= label_tag(:passenger_count, "3")%>
-  <%= radio_button_tag(:passenger_count, 3)%>
-  <%= label_tag(:passenger_count, "4")%>
-  <%= radio_button_tag(:passenger_count, 4)%>
-</div>
-<br />
-<h3>Departure date</h3>
-<div class="flight_date">
-  <%= select_tag(:start, options_for_select(Flight.get_flight_dates)) %>
-</div>
-<!-- DATE dropdown for flight date -->
+<%= form_with(url: "/index", method: "get") do %>
+  <div class="dropdown">
+    <%= label_tag(:from_airport_id, "From")%><br />
+    <%= collection_select(:flight, :from_airport_id, @airports, :id, :code) %>
+  </div>
+  <br />
+  <div class="dropdown">
+    <%= label_tag(:to_airport_id, "To")%><br />
+    <%= collection_select(:flight, :to_airport_id, @airports, :id, :code) %>
+  </div>
+  <br />
+  <h3>Number of passengers</h3>
+  <div class="radio_select">
+    <%= label_tag(:passenger_count, "1")%>
+    <%= radio_button_tag(:passenger_count, 1)%>
+    <%= label_tag(:passenger_count, "2")%>
+    <%= radio_button_tag(:passenger_count, 2)%>
+    <%= label_tag(:passenger_count, "3")%>
+    <%= radio_button_tag(:passenger_count, 3)%>
+    <%= label_tag(:passenger_count, "4")%>
+    <%= radio_button_tag(:passenger_count, 4)%>
+  </div>
+  <br />
+  <h3>Departure date</h3>
+  <div class="flight_date">
+    <%= select_tag(:start, options_for_select(Flight.get_flight_dates)) %>
+  </div>
+  <br />
+  <div class="submit_button">
+    <%= submit_tag("Search Flights") %>
+  </div>
+<% end %>
